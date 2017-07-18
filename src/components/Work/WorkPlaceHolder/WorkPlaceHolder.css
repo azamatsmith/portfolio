@@ -1,0 +1,48 @@
+.WorkPlaceHolder {
+  display: flex;
+  height: 150px;
+}  
+
+.WorkPlaceHolder-left {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem;
+  width: 30%;      
+}
+
+.WorkPlaceHolder-left-text {
+  background-color: grey;
+  border-radius: 2px;
+  height: 18px;
+  margin: 0.3rem;
+}
+
+.WorkPlaceHolder-left-text.one {
+  width: 90%;
+}
+
+.WorkPlaceHolder-left-text.two {
+  width: 70%;
+}
+
+.WorkPlaceHolder-left-text.three {
+  width: 40%;
+}
+
+.WorkPlaceHolder-right {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem;
+  width: 70%;
+}
+
+.WorkPlaceHolder-right-text {
+  background-color: grey;
+  border-radius: 2px;
+  height: 18px;
+  margin: 0.3rem;
+}
+
+.WorkPlaceHolder-right-text.three {
+  width: 40%;
+}

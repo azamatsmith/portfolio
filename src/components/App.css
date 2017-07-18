@@ -1,0 +1,15 @@
+body {
+  font-size: 1rem;
+  font-family: 'Alegreya Sans', sans-serif;
+}
+
+a {
+  color: #337ab7;
+  text-decoration: none;
+  transition: all 200ms ease-out;
+}
+
+a:hover {
+  color: #218be6;
+  text-decoration: underline;
+}

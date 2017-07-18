@@ -1,0 +1,28 @@
+.WorkItem {
+  display: flex;
+}
+
+.WorkItem-left {
+  margin-right: 1rem;
+  padding: 0.5rem;
+  padding-left: 0;
+  width: 35%;
+}
+
+.WorkItem-right {
+  width: 65%;
+}
+
+.WorkItem-title {
+  font-size: 1.2rem;
+}
+
+.WorkItem-dates {
+  color: #939393;
+  font-size: 0.8rem;
+}
+
+.WorkItem-summary {
+  font-size: 0.9rem; 
+  padding: 0.5rem;
+}
