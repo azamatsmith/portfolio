@@ -1,0 +1,31 @@
+.Admin {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 2rem;
+}
+
+.admin-section {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  min-width: 20rem;
+}
+
+.admin-title {
+  font-size: 1.2rem;
+}
+
+/* overrrides */
+.react-datepicker__input-container {
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.react-datepicker__input-container input {
+  border-style: none;
+  border: 1px solid #303030;
+  border-radius: 2px;
+  font-size: 1rem;
+  padding: 0.5rem;
+  min-width: 19rem;
+}

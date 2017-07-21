@@ -14,7 +14,6 @@ const propTypes = {
 };
 
 export default function WorkItem({ data }) {
-
   const { title, org, dates, summary } = data;
 
   return (

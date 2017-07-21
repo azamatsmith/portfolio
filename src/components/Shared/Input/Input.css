@@ -1,0 +1,18 @@
+.Input {
+  display: flex;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.Input-label {
+
+}
+
+.Input-input {
+  border-style: none;
+  border: 1px solid #303030;
+  border-radius: 2px;
+  font-size: 1rem;
+  padding: 0.5rem;
+  width: 100%;
+}

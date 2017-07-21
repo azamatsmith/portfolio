@@ -5,70 +5,90 @@ import {connect} from 'react-redux';
 import {firebase, helpers} from 'react-redux-firebase';
 const {dataToJS} = helpers;
 
+import Button from '../Shared/Button';
+import Input from '../Shared/Input';
+import TextArea from '../Shared/TextArea';
+
 class AddProject extends Component {
-  constructor(props) {
-    super(props);  
-    this.state = { 
-      title: '', 
-      org: '', 
-      summary: '', 
-      linkUrl: '', 
-      linkName: '', 
-    };
-    this.handleAdd = this.handleAdd.bind(this);
+
+  state = {
+    title: '',
+    org: '',
+    summary: '',
+    linkUrl: '',
+    linkName: '',
   }
 
-  handleAdd() {
+  // PRIVATE
+
+  _handleAdd = () => {
     this.props.firebase.push('/projects', this.state);
     this.setState({ title: '', org: '', summary: '', linkUrl: '', linkName: '' });
   }
 
   render() {
-    const {title, org, summary, linkUrl, linkName} = this.state;
+    const {
+      title,
+      org,
+      summary,
+      linkUrl,
+      linkName
+    } = this.state;
+
     return (
-      <div>  
-        <h3>Add A Project</h3>
-        <input 
-          placeholder="Title" 
-          type="text" 
-          value={title} 
-          onChange={(e) => this.setState({title: e.target.value})} 
+      <div className="AddProject admin-section">
+        <h3 className="admin-title">Add A Project</h3>
+
+        <Input
+          placeholder="Title"
+          type="text"
+          value={title}
+          onChange={(e) => this.setState({title: e.target.value})}
         />
-        <input 
-          placeholder="Organization" 
-          type="text" 
-          value={org} 
-          onChange={(e) => this.setState({org: e.target.value})} 
+
+        <Input
+          placeholder="Organization"
+          type="text"
+          value={org}
+          onChange={(e) => this.setState({org: e.target.value})}
         />
-        <textarea 
-          placeholder="Summary" 
-          type="text" 
-          value={summary} 
-          onChange={(e) => this.setState({summary: e.target.value})} 
+
+        <Input
+          placeholder="Link Url"
+          type="text"
+          value={linkUrl}
+          onChange={(e) => this.setState({linkUrl: e.target.value})}
         />
-        <input 
-          placeholder="Link Url" 
-          type="text" 
-          value={linkUrl} 
-          onChange={(e) => this.setState({linkUrl: e.target.value})} 
+
+        <Input
+          placeholder="Link Name"
+          type="text"
+          value={linkName}
+          onChange={(e) => this.setState({linkName: e.target.value})}
         />
-        <input 
-          placeholder="Link Name" 
-          type="text" 
-          value={linkName} 
-          onChange={(e) => this.setState({linkName: e.target.value})} 
+
+        <TextArea
+          placeholder="Summary"
+          type="text"
+          value={summary}
+          onChange={(e) => this.setState({summary: e.target.value})}
         />
-        <button onClick={() => this.handleAdd()}>Add Project</button>
+
+        <Button
+          onClick={ this._handleAdd }
+          text="Add Project"
+        />
+
       </div>
-    );  
+    );
   }
 }
 
 const data = firebase([
   'projects'
 ])(AddProject);
-export default connect( 
-  ({firebase}) => ({
-    projects: dataToJS(firebase, 'projects')    
+export default connect(
+  ({ firebase }) => ({
+    projects: dataToJS(firebase, 'projects')
   })
 )(data);

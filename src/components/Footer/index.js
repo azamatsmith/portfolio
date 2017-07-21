@@ -18,7 +18,7 @@ const Footer = () => {
 	return (
 		<div className="Footer">
 			<p>
-				My Portfolio is made with React, Redux, and Firebase. Check it out on { link }.
+				Made with React, Redux, and Firebase. Check it out on { link }.
 			</p>
 
 			<p>
