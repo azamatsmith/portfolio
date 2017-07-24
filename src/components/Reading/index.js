@@ -8,33 +8,30 @@ import moment from 'moment';
 
 class Reading extends Component {
 
+  // PRIVATE
   _sortBooks = (books) => {
-    const bookList = Object.keys(books).map(key => {
-      return books[key];
-    });
+    const bookList = Object.keys(books).map(key => books[key]);
 
-    return bookList.sort((a,b) => {
-      return new Date(b.date) - new Date(a.date)
-    });
+    return bookList.sort((a,b) => (
+      new Date(b.date) - new Date(a.date)
+    ));
   }
 
   _buildBookList = () => {
     const { books } = this.props;
     const sortedBooks = this._sortBooks(books);
 
-    return sortedBooks.map(book => {
-      return (
-        <li key={book.title}>
-					<span>
-						{book.author}
-					</span>
-					<span>
-						<i>{book.title}</i>
-						({ moment(book.date).format('MMM YYYY') })
-					</span>
-        </li>
-      );
-    });
+    return sortedBooks.map(book => (
+      <li key={ book.title }>
+        <span>
+          { book.author }
+        </span>
+        <span>
+          <i>{ book.title }</i>
+          ({ moment(book.date).format('MMM YYYY') })
+        </span>
+      </li>
+    ));
   }
 
   render() {
@@ -47,12 +44,10 @@ class Reading extends Component {
     const bookList = this._buildBookList();
 
     return (
-      <div className="row">
-        <div className="col-sm-12 col-sm-offset-8">
-          <ul className="list-unstyled">
-            { bookList }
-          </ul>
-        </div>
+      <div className="Books">
+        <ul className="Books-list">
+          { bookList }
+        </ul>
       </div>
     );
   }

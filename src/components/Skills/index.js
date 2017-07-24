@@ -3,11 +3,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { firebase, helpers } from 'react-redux-firebase';
+
 const { isLoaded, isEmpty, dataToJS } = helpers;
+
 
 class Skills extends Component {
   render() {
     const { skills } = this.props;
+
     if (!isLoaded(skills)) { return <div />; }
     if (isEmpty(skills)) { return <div />; }
 
@@ -16,12 +19,10 @@ class Skills extends Component {
     });
 
     return (
-      <div className="row">
-        <div className="col-sm-4 col-sm-offset-8">
-          <ul className="list-unstyled">
-            { skillsList }
-          </ul>
-        </div>
+      <div className="Skills">
+        <ul className="Skills-list">
+          { skillsList }
+        </ul>
       </div>
     );
   }
