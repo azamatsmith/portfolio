@@ -25,9 +25,19 @@ class WorkList extends Component {
 
     if (isEmpty(work)) { return <div />; }
 
-    const workList = Object.keys(work).map(key => {
+    const sortedWork = Object.keys(work).map(key => work[key]).sort((a,b) => {
+      if (a.index < b.index) {
+        return 1;
+      }
+      if (a.index > b.index) {
+        return -1;
+      }
+      return 0;
+    });
+
+    const workList = sortedWork.map(work => {
       return (
-        <WorkItem key={ key } data={ work[key] } />
+        <WorkItem key={ `work-${ work.index }` } data={ work } />
       );
     });
 

@@ -64,10 +64,5 @@ class Portfolio extends Component {
   }
 }
 
-// const mapStateToProps = (state) => {
-//   console.log('state is ', state);
-//   return {};
-// }
-
 export default connect(null, { updateCurrentScroll })(Portfolio);
 

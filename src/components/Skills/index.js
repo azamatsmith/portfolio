@@ -3,25 +3,33 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { firebase, helpers } from 'react-redux-firebase';
+
 const { isLoaded, isEmpty, dataToJS } = helpers;
+
+import './Skills.css';
+
 
 class Skills extends Component {
   render() {
     const { skills } = this.props;
+
     if (!isLoaded(skills)) { return <div />; }
     if (isEmpty(skills)) { return <div />; }
 
-    const skillsList = Object.keys(skills).map( (skill) => {
-      return <li key={`${ skill }-${ skill }`}>{ skills[skill] }</li>;
-    });
+    const skillsList = Object.keys(skills).map((skill,i) => (
+      <li
+        className="Skills-list-item"
+        key={`${ skill }-${ i }`}
+        >
+          { skills[skill] }
+      </li>
+    ));
 
     return (
-      <div className="row">
-        <div className="col-sm-4 col-sm-offset-8">
-          <ul className="list-unstyled">
-            { skillsList }
-          </ul>
-        </div>
+      <div className="Skills">
+        <ul className="Skills-list">
+          { skillsList }
+        </ul>
       </div>
     );
   }

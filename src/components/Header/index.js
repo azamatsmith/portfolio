@@ -2,17 +2,23 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Social from '../Social';
 
+import running from '../images/running.jpg';
+import code from '../images/code.svg';
+import bike from '../images/bike.svg';
+import book from '../images/book.svg';
+
 import './Header.css'
 
-const propTypes = {
-  text: PropTypes.string
-};
-
-const defaultProps = {
-
-};
 
 export default class Header extends Component {
+
+  static propTypes = {
+    text: PropTypes.string
+  }
+
+  static defaultProps = {
+
+  }
 
   state = {
     headerClass: 'Header'
@@ -29,10 +35,29 @@ export default class Header extends Component {
   _renderPics = () => {
     return (
       <div className="Pics">
-        <div className="Pics-profile"></div>
-        <div className="Pics-icon"></div>
-        <div className="Pics-icon"></div>
-        <div className="Pics-icon"></div>
+        <img
+          alt="portrait"
+          className="Pics-profile"
+          src={ running }
+        />
+        <div className="Pics-icon">
+          <img
+            alt="icon code"
+            src={ code }
+          />
+        </div>
+        <div className="Pics-icon">
+          <img
+            alt="icon book"
+            src={ book }
+          />
+        </div>
+        <div className="Pics-icon">
+          <img
+            alt="icon bike"
+            src={ bike }
+          />
+        </div>
       </div>
     );
   }
@@ -64,8 +89,3 @@ export default class Header extends Component {
     );
   }
 }
-
-Header.propTypes = propTypes;
-Header.defaultProps = defaultProps;
-
-
