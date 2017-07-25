@@ -19,30 +19,30 @@ class ProjectItem extends Component {
 		const {
       linkUrl,
       linkName,
-      photos
+      // photos
     } = this.props.data;
 
-		if (photos) {
-			return (
-        <div className="ProjectItem-link-section">
-					<a
-            className="ProjectItem-link"
-            href={ linkUrl }
-            target="_blank"
-          >
-            { linkName }
-          </a>
+		// if (photos) {
+		// 	return (
+        // <div className="ProjectItem-link-section">
+		// 			<a
+            // className="ProjectItem-link"
+            // href={ linkUrl }
+            // target="_blank"
+          // >
+            // { linkName }
+          // </a>
 
-					<a
-            className="ProjectItem-link"
-						href="#"
-						onClick={ this._handleLinkClick }
-					>
-						View Photos
-					</a>
-				</div>
-			);
-		}
+		// 			<a
+            // className="ProjectItem-link"
+		// 				href="#"
+		// 				onClick={ this._handleLinkClick }
+		// 			>
+		// 				View Photos
+		// 			</a>
+		// 		</div>
+		// 	);
+		// }
 
 		return (
 			<div className="ProjectItem-link-section">

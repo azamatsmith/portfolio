@@ -1,12 +1,24 @@
 // components/Reading.js
 
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { firebase, helpers } from 'react-redux-firebase';
 const { isLoaded, isEmpty, dataToJS } = helpers;
 import moment from 'moment';
 
+import './Reading.css';
+
+
 class Reading extends Component {
+
+  static propTypes = {
+    books: PropTypes.array.isRequired
+  }
+
+  static defaultProps = {
+    books: []
+  }
 
   // PRIVATE
   _sortBooks = (books) => {
@@ -22,12 +34,17 @@ class Reading extends Component {
     const sortedBooks = this._sortBooks(books);
 
     return sortedBooks.map(book => (
-      <li key={ book.title }>
-        <span>
+      <li
+        className="Reading-list-item"
+        key={ book.title }
+      >
+        <span className="Reading-list-item-title">
+          <i>{ book.title }</i>
+        </span>
+        <span className="Reading-list-item-author">
           { book.author }
         </span>
-        <span>
-          <i>{ book.title }</i>
+        <span className="Reading-list-item-date">
           ({ moment(book.date).format('MMM YYYY') })
         </span>
       </li>
@@ -62,3 +79,4 @@ export default connect(
     books: dataToJS(firebase, 'books')
   })
 )(data);
+

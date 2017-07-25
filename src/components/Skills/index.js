@@ -6,6 +6,8 @@ import { firebase, helpers } from 'react-redux-firebase';
 
 const { isLoaded, isEmpty, dataToJS } = helpers;
 
+import './Skills.css';
+
 
 class Skills extends Component {
   render() {
@@ -14,9 +16,14 @@ class Skills extends Component {
     if (!isLoaded(skills)) { return <div />; }
     if (isEmpty(skills)) { return <div />; }
 
-    const skillsList = Object.keys(skills).map( (skill) => {
-      return <li key={`${ skill }-${ skill }`}>{ skills[skill] }</li>;
-    });
+    const skillsList = Object.keys(skills).map((skill,i) => (
+      <li
+        className="Skills-list-item"
+        key={`${ skill }-${ i }`}
+        >
+          { skills[skill] }
+      </li>
+    ));
 
     return (
       <div className="Skills">
