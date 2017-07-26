@@ -9,7 +9,6 @@ import Skills from './Skills';
 import Reading from './Reading';
 
 import Footer from './Footer/';
-import Modal from './Modal';
 import Section from './Section';
 
 
@@ -27,15 +26,12 @@ class Portfolio extends Component {
   //PRIVATE
 
   _handleScroll = (e) => {
-    console.log('scrolled height', e.srcElement.body.scrollHeight);
-    console.log('scrolled top', e.srcElement.body.scrollTop);
-    console.log('scrolled', e);
+    // console.log('scrolled height', e.srcElement.body.scrollHeight);
+    // console.log('scrolled top', e.srcElement.body.scrollTop);
+    // console.log('scrolled', e);
   }
 
   render() {
-
-    console.log('portfolioprops: ', this.props);
-
     return (
       <div className="Portfolio">
         <Header />
@@ -57,8 +53,6 @@ class Portfolio extends Component {
         </Section>
 
         <Footer />
-        <Modal />
-
       </div>
     );
   }
