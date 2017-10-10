@@ -1,0 +1,35 @@
+.ContactMe {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ContactMe-divider {
+  background-color: #16191b;
+  display: flex;
+  height: 1px;
+  margin-bottom: 2.5rem;
+  width: 75%;
+}
+
+.ContactMe-title {
+  font-size: 2.5rem;
+}
+
+.ContactMe-img {
+  border-radius: 50%;
+  box-shadow: 0px 1px 5px 0px #777;
+  height: 100px;
+  margin: 1.5rem;
+}
+
+.ContactMe-text {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  margin-top: 1.5rem;
+}
+
+.ContactMe-social {
+  margin-top: 1.5rem;
+}
