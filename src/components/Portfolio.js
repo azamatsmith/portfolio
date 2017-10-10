@@ -7,27 +7,27 @@ import Work from './Work';
 import Projects from './Projects';
 import Skills from './Skills';
 import Reading from './Reading';
-import NewReading from './NewReading';
+import ContactMe from './ContactMe';
 
 import Footer from './Footer/';
 import Section from './Section';
 
 class Portfolio extends Component {
-  componentDidMount() {
-    window.addEventListener('scroll', this._handleScroll);
-  }
+  // componentDidMount() {
+  //   window.addEventListener('scroll', this._handleScroll);
+  // }
 
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this._handleScroll);
-  }
+  // componentWillUnmount() {
+  //   window.removeEventListener('scroll', this._handleScroll);
+  // }
 
-  //PRIVATE
+  // //PRIVATE
 
-  _handleScroll = e => {
-    // console.log('scrolled height', e.srcElement.body.scrollHeight);
-    // console.log('scrolled top', e.srcElement.body.scrollTop);
-    // console.log('scrolled', e);
-  };
+  // _handleScroll = e => {
+  //   // console.log('scrolled height', e.srcElement.body.scrollHeight);
+  //   // console.log('scrolled top', e.srcElement.body.scrollTop);
+  //   // console.log('scrolled', e);
+  // };
 
   render() {
     return (
@@ -48,6 +48,10 @@ class Portfolio extends Component {
 
         <Section title="Reading">
           <Reading />
+        </Section>
+
+        <Section title="Contact Me">
+          <ContactMe />
         </Section>
 
         <Footer />
