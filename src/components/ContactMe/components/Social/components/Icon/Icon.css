@@ -1,6 +1,6 @@
 .Icon {
   align-items: center;
-  background-color: black;
+  background-color: #16191b;
   border-radius: 50%;
   cursor: pointer;
   display: flex;
@@ -9,4 +9,10 @@
   width: 2rem;
   padding: 0.7rem;
   margin: 0.5rem;
+  transition: box-shadow ease-out 250ms, background-color ease-out 250ms;
+}
+
+.Icon:hover {
+  box-shadow: 0px 3px 7px 0px #777;
+  background-color: #394147;
 }

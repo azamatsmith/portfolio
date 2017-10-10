@@ -37,7 +37,6 @@ class Icon extends Component {
 
   render() {
     const {link, target} = this.props;
-    console.log('should render', this._getIcon());
     return (
       <a className="Icon" href={link} rel="nofollow" target={target}>
         {this._getIcon()}

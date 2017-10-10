@@ -50,7 +50,7 @@ class Portfolio extends Component {
           <Reading />
         </Section>
 
-        <Section title="Contact Me">
+        <Section>
           <ContactMe />
         </Section>
 
