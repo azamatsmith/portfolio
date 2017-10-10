@@ -8,7 +8,7 @@
 }
 
 .ProjectItem-title {
-  font-size: 1.2rem;  
+  font-size: 1.4rem;
 }
 
 .ProjectItem-org {
@@ -19,10 +19,11 @@
 
 .ProjectItem-summary {
   flex: 1;
+  font-size: 1.2rem;
 }
 
 .ProjectItem-link-section {
-  padding-top: 0.5rem;  
+  padding-top: 0.5rem;
 }
 
 .ProjectItem-link {
