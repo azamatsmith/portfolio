@@ -50,10 +50,6 @@ class Portfolio extends Component {
           <Reading />
         </Section>
 
-        <Section title="NewReading">
-          <NewReading />
-        </Section>
-
         <Footer />
       </div>
     );
