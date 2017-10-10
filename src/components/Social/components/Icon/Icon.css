@@ -1,11 +1,11 @@
-.Social {
-  display: flex;
-}
-
-.Social-icon-wrapper {
+.Icon {
+  align-items: center;
   background-color: black;
   border-radius: 50%;
+  cursor: pointer;
+  display: flex;
   height: 2rem;
+  justify-content: center;
   width: 2rem;
   padding: 0.7rem;
   margin: 0.5rem;
