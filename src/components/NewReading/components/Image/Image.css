@@ -1,11 +1,24 @@
-.Image {
+.Image-card {
   align-items: center;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
   margin: 1rem;
+  transition: box-shadow 250ms ease-out, transform 250ms ease-out;
+}
+
+.Image-link {
+}
+
+.Image-card:hover {
+  box-shadow: 0 2px 9px 0 rgba(0, 0, 0, 0.5);
+  transform: translate(0, -5px);
 }
 
 .Image-date {
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.9);
   font-size: 1.2rem;
-  margin-top: 1rem;
+  padding: 0.5rem;
 }
