@@ -1,14 +1,14 @@
 const initialState = {
-  books: []
+  books: [],
 };
 
 const BooksReducer = (state = initialState, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case 'UPDATE_BOOKS':
-      return { ...state, books: action.books };
+      return {...state, books: action.books};
     default:
-     return state;
+      return state;
   }
-}
+};
 
 export default BooksReducer;

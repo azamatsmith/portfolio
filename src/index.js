@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, browserHistory } from 'react-router'
-import { Provider } from 'react-redux';
-import { applyMiddleware, createStore, compose } from 'redux';
-import { reduxFirebase } from 'react-redux-firebase';
+import {Router, browserHistory} from 'react-router';
+import {Provider} from 'react-redux';
+import {applyMiddleware, createStore, compose} from 'redux';
+import {reduxFirebase} from 'react-redux-firebase';
 import thunk from 'redux-thunk';
 
 import routes from './routes';
@@ -23,8 +23,8 @@ const createStoreWithFirebase = compose(
 )(createStore);
 
 ReactDOM.render(
-	<Provider store={ createStoreWithFirebase(reducers) }>
-		<Router history={ browserHistory } routes={ routes } />
-	</Provider>,
-  document.getElementById('root')
+  <Provider store={createStoreWithFirebase(reducers)}>
+    <Router history={browserHistory} routes={routes} />
+  </Provider>,
+  document.getElementById('root'),
 );

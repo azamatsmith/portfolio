@@ -1,0 +1,11 @@
+.Image {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+}
+
+.Image-date {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}

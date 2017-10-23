@@ -4,7 +4,7 @@ import BooksReducer from './reducers/BooksReducer';
 
 const rootReducer = combineReducers({
   firebase: firebaseStateReducer,
-  books: BooksReducer
+  books: BooksReducer,
 });
 
 export default rootReducer;
