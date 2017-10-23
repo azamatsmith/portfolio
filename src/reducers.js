@@ -1,11 +1,10 @@
 import {combineReducers} from 'redux';
 import {firebaseStateReducer} from 'react-redux-firebase';
-import Main from './reducers/reducer_main';
+import BooksReducer from './reducers/BooksReducer';
 
 const rootReducer = combineReducers({
   firebase: firebaseStateReducer,
-	app: Main,
-
+  books: BooksReducer,
 });
 
 export default rootReducer;

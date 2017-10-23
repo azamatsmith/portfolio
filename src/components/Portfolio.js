@@ -6,7 +6,7 @@ import Header from './Header';
 import Work from './Work';
 import Projects from './Projects';
 import Skills from './Skills';
-import Reading from './Reading';
+import NewReading from './NewReading';
 import ContactMe from './ContactMe';
 
 import Footer from './Footer/';
@@ -46,8 +46,8 @@ class Portfolio extends Component {
           <Skills />
         </Section>
 
-        <Section title="Reading">
-          <Reading />
+        <Section title="Recent Reads">
+          <NewReading />
         </Section>
 
         <Section>

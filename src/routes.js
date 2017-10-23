@@ -6,8 +6,8 @@ import Portfolio from './components/Portfolio';
 import Admin from './components/Admin';
 
 export default (
-	<Route path="/" component={ App } >
-		<IndexRoute component={ Portfolio } />
-    <Route path="/admin" component={ Admin } />
-	</Route>
+  <Route path="/" component={App}>
+    <IndexRoute component={Portfolio} />
+    <Route path="/admin" component={Admin} />
+  </Route>
 );

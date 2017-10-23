@@ -1,47 +1,30 @@
 import React, {Component} from 'react';
-// import PropTypes from 'prop-types';
-import Twitter from 'twitter';
+import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+import {getBooks} from 'actions';
+import Image from './components/Image';
 import './NewReading.css';
 
-export default class NewReading extends Component {
-  static propTypes = {};
+class NewReading extends Component {
+  static propTypes = {books: PropTypes.array};
 
-  static defaultProps = {};
-
-  state = {
-    client: null,
-  };
+  static defaultProps = {books: []};
 
   componentDidMount() {
-    const params = {
-      screen_name: 'azamatsmith',
-    };
-
-    const client = new Twitter({
-      consumer_key: process.env.REACT_APP_TWITTER_CONSUMER_KEY,
-      consumer_secret: process.env.REACT_APP_TWITTER_CONSUMER_SECRET,
-      access_token_key: process.env.REACT_APP_TWITTER_ACCESS_TOKEN,
-      access_token_secret: process.env.REACT_APP_TWITTER_ACCESS_TOKEN_SECRET,
-    });
-
-    client.get('statuses/user_timeline', params, (error, tweets, response) => {
-      if (!error) {
-        console.log('tweets are: ', tweets);
-      }
-    });
+    this.props.getBooks();
   }
+
+  // PRIVATE
+
+  _renderBooks = () => {
+    return this.props.books.map(book => <Image key={book.id} {...book} />);
+  };
 
   render() {
-    return (
-      <div className="Reading">
-        <span>ldkfjsdljf</span>
-        <span>ldkfjsdljf</span>
-        <span>ldkfjsdljf</span>
-        <span>ldkfjsdljf</span>
-        <span>ldkfjsdljf</span>
-        <span>ldkfjsdljf</span>
-        Something
-      </div>
-    );
+    return <div className="Reading">{this._renderBooks()}</div>;
   }
 }
+
+const mapStateToProps = ({books}) => ({books: books.books});
+
+export default connect(mapStateToProps, {getBooks})(NewReading);
