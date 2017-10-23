@@ -51,9 +51,16 @@ export default class Image extends Component {
   };
 
   _renderImage = () => {
+    const {hovered} = this.state;
     return (
-      <div className="Image">
-        <img src={this.state.link} className="Image-img" alt="Book" />
+      <div className="Image-card">
+        <a
+          href={this.props.url.expanded_url}
+          className="Image-link"
+          target="_blank"
+          rel="nofollow">
+          <img src={this.state.link} className="Image-img" alt="Book" />
+        </a>
         <span className="Image-date">
           {moment(this.props.created_at).format('MMMM Do YYYY')}
         </span>
