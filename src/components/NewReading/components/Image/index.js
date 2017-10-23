@@ -51,7 +51,6 @@ export default class Image extends Component {
   };
 
   _renderImage = () => {
-    const {hovered} = this.state;
     return (
       <div className="Image-card">
         <a
