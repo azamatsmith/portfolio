@@ -17,8 +17,20 @@
 }
 
 .Image-date {
-  bottom: 0;
   background-color: rgba(255, 255, 255, 0.9);
   font-size: 1.2rem;
   padding: 0.5rem;
+}
+
+.Image-placeholder-card {
+  align-items: center;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  background-color: #394147;
+  display: flex;
+  height: 249px;
+  flex-direction: column;
+  margin: 1rem;
+  transition: box-shadow 250ms ease-out, transform 250ms ease-out;
+  width: 210px;
 }
