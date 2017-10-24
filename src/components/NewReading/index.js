@@ -17,6 +17,12 @@ class NewReading extends Component {
   // PRIVATE
 
   _renderBooks = () => {
+    const {books} = this.props;
+    if (!books.length) {
+      return Array(5)
+        .fill('')
+        .map((e, i) => <Image key={i} placeholder />);
+    }
     return this.props.books.map(book => <Image key={book.id} {...book} />);
   };
 

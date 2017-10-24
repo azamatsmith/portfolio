@@ -6,6 +6,7 @@ import './Image.css';
 export default class Image extends Component {
   static propTypes = {
     created_at: PropTypes.string,
+    placeholder: PropTypes.bool,
     url: PropTypes.shape({
       expanded_url: PropTypes.string,
     }),
@@ -13,6 +14,7 @@ export default class Image extends Component {
 
   static defaultProps = {
     created_at: null,
+    placeholder: false,
     url: {
       expanded_url: '',
     },
@@ -24,7 +26,10 @@ export default class Image extends Component {
   };
 
   componentDidMount() {
-    this._getImage();
+    const {placeholder} = this.props;
+    if (!placeholder) {
+      this._getImage();
+    }
   }
 
   // PRIVATE
@@ -68,7 +73,7 @@ export default class Image extends Component {
   };
 
   _renderLoading = () => {
-    return null;
+    return <div className="Image-placeholder-card" />;
   };
 
   render() {
