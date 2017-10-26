@@ -34,3 +34,20 @@
   transition: box-shadow 250ms ease-out, transform 250ms ease-out;
   width: 210px;
 }
+
+.Image-error {
+  align-items: center;
+  background-color: #394147;
+  color: #fff;
+  display: inline-flex;
+  height: 210px;
+  justify-content: center;
+  text-decoration: none;
+  text-underline: #394147;
+  width: 210px;
+}
+
+.Image-img {
+  height: 210px;
+  width: 210px;
+}

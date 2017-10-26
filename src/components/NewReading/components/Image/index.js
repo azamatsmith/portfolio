@@ -21,6 +21,7 @@ export default class Image extends Component {
   };
 
   state = {
+    imageError: false,
     link: null,
     loadedImage: false,
   };
@@ -37,6 +38,7 @@ export default class Image extends Component {
   _getImage = () => {
     const link = this.props.url.expanded_url;
     const url = 'https://tw-portfolio-mts.herokuapp.com/getImage';
+    console.log(this.props.url);
     const config = {
       headers: new Headers({
         'Content-Type': 'application/json',
@@ -47,7 +49,15 @@ export default class Image extends Component {
     fetch(url, config)
       .then(res => res.json())
       .then(json => {
+        if (json.error) {
+          return this.setState({
+            imageError: true,
+            loadedImage: true,
+            link: json.link,
+          });
+        }
         this.setState({
+          imageError: false,
           loadedImage: true,
           link: json.link,
         });
@@ -56,6 +66,12 @@ export default class Image extends Component {
   };
 
   _renderImage = () => {
+    const image = this.state.imageError ? (
+      this._renderErrorPlaceholder()
+    ) : (
+      <img src={this.state.link} className="Image-img" alt="Book" />
+    );
+
     return (
       <div className="Image-card">
         <a
@@ -63,13 +79,17 @@ export default class Image extends Component {
           className="Image-link"
           target="_blank"
           rel="nofollow">
-          <img src={this.state.link} className="Image-img" alt="Book" />
+          {image}
         </a>
         <span className="Image-date">
           {moment(this.props.created_at).format('MMMM Do YYYY')}
         </span>
       </div>
     );
+  };
+
+  _renderErrorPlaceholder = () => {
+    return <span className="Image-error">Cannot Retrieve Image</span>;
   };
 
   _renderLoading = () => {
