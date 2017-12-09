@@ -1,10 +1,10 @@
-import React from 'react';
-// import PropTypes from 'prop-types';
-import Social from './components/Social';
+import React from "react";
+import PropTypes from "prop-types";
+import Social from "./components/Social";
 
-import running from '../images/running.jpg';
+import running from "../images/running.jpg";
 
-import './ContactMe.css';
+import "./ContactMe.css";
 
 const propTypes = {};
 
