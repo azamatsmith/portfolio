@@ -34,17 +34,11 @@ class Portfolio extends Component {
       <div className="Portfolio">
         <Header />
 
-        <Section title="Work">
-          <Work />
-        </Section>
+        <Work />
 
-        <Section title="Projects">
-          <Projects />
-        </Section>
+        <Projects />
 
-        <Section title="Skills">
-          <Skills />
-        </Section>
+        <Skills />
 
         <Section title="Recent Reads">
           <NewReading />
@@ -60,4 +54,7 @@ class Portfolio extends Component {
   }
 }
 
-export default connect(null, {updateCurrentScroll})(Portfolio);
+export default connect(
+  null,
+  {updateCurrentScroll}
+)(Portfolio);

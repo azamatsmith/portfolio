@@ -29,7 +29,7 @@ class NewReading extends Component {
   };
 
   render() {
-    return <div className="Reading">{this._renderBooks()}</div>;
+    return <div className="NewReading">{this._renderBooks()}</div>;
   }
 }
 

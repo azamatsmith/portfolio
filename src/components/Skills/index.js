@@ -3,10 +3,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {firebase, helpers} from 'react-redux-firebase';
-
-const {isLoaded, isEmpty, dataToJS} = helpers;
-
+import {Section} from 'components';
 import './Skills.css';
+const {isLoaded, isEmpty, dataToJS} = helpers;
 
 class Skills extends Component {
   render() {
@@ -26,9 +25,11 @@ class Skills extends Component {
     ));
 
     return (
-      <div className="Skills">
-        <ul className="Skills-list">{skillsList}</ul>
-      </div>
+      <Section title="Skills">
+        <div className="Skills">
+          <ul className="Skills-list">{skillsList}</ul>
+        </div>
+      </Section>
     );
   }
 }
