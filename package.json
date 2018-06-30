@@ -19,7 +19,7 @@
     "twitter": "^1.7.1"
   },
   "devDependencies": {
-    "prettier": "^1.7.4",
+    "prettier": "^1.13.7",
     "react-scripts": "0.9.5"
   },
   "scripts": {
