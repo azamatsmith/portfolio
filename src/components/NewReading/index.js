@@ -1,14 +1,14 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { getBooks } from "actions";
-import Image from "./components/Image";
-import "./NewReading.css";
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+import {getBooks} from 'actions';
+import {Image, Section} from 'components';
+import './NewReading.css';
 
 class NewReading extends Component {
-  static propTypes = { books: PropTypes.array };
+  static propTypes = {books: PropTypes.array};
 
-  static defaultProps = { books: [] };
+  static defaultProps = {books: []};
 
   componentDidMount() {
     this.props.getBooks();
@@ -17,12 +17,6 @@ class NewReading extends Component {
   // PRIVATE
 
   _renderBooks = () => {
-    const { books } = this.props;
-    if (!books.length) {
-      return Array(5)
-        .fill("")
-        .map((e, i) => <Image key={i} placeholder />);
-    }
     const re = /audible/;
     return this.props.books
       .filter(book => re.test(book.url.expanded_url))
@@ -30,10 +24,20 @@ class NewReading extends Component {
   };
 
   render() {
-    return <div className="Reading">{this._renderBooks()}</div>;
+    if (!this.props.books.length) {
+      return null;
+    }
+    return (
+      <Section title="Recent Reads">
+        <div className="NewReading">{this._renderBooks()}</div>
+      </Section>
+    );
   }
 }
 
-const mapStateToProps = ({ books }) => ({ books: books.books });
+const mapStateToProps = ({books}) => ({books: books.books});
 
-export default connect(mapStateToProps, { getBooks })(NewReading);
+export default connect(
+  mapStateToProps,
+  {getBooks}
+)(NewReading);

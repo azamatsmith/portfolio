@@ -38,7 +38,12 @@ class Icon extends Component {
   render() {
     const {link, target} = this.props;
     return (
-      <a className="Icon" href={link} rel="nofollow" target={target}>
+      <a
+        className="Icon translate-y-2"
+        href={link}
+        rel="nofollow"
+        target={target}
+      >
         {this._getIcon()}
       </a>
     );

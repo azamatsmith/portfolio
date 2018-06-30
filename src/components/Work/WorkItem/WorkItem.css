@@ -2,17 +2,6 @@
   display: flex;
 }
 
-.WorkItem-left {
-  margin-right: 1rem;
-  padding: 0.5rem;
-  padding-left: 0;
-  width: 35%;
-}
-
-.WorkItem-right {
-  width: 65%;
-}
-
 .WorkItem-title {
   font-size: 1.4rem;
 }
@@ -28,6 +17,4 @@
 
 .WorkItem-summary {
   font-size: 1.2rem;
-  line-height: 1.3rem;
-  padding: 0.5rem;
 }
