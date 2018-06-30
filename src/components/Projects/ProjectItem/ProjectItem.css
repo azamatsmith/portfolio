@@ -1,10 +1,6 @@
 .ProjectItem {
   display: flex;
   flex-direction: column;
-  min-width: 14rem;
-  max-width: 15rem;
-  padding: 1rem;
-  padding-left: 0;
 }
 
 .ProjectItem-title {

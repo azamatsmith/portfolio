@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {getBooks} from 'actions';
-import Image from './components/Image';
+import {Image, Section} from 'components';
 import './NewReading.css';
 
 class NewReading extends Component {
@@ -17,11 +17,6 @@ class NewReading extends Component {
   // PRIVATE
 
   _renderBooks = () => {
-    const {books} = this.props;
-    if (!books.length) {
-      return null;
-    }
-
     const re = /audible/;
     return this.props.books
       .filter(book => re.test(book.url.expanded_url))
@@ -29,7 +24,14 @@ class NewReading extends Component {
   };
 
   render() {
-    return <div className="NewReading">{this._renderBooks()}</div>;
+    if (!this.props.books.length) {
+      return null;
+    }
+    return (
+      <Section title="Recent Reads">
+        <div className="NewReading">{this._renderBooks()}</div>
+      </Section>
+    );
   }
 }
 

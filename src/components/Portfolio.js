@@ -2,52 +2,33 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {updateCurrentScroll} from 'actions';
 
-import Header from './Header';
-import Work from './Work';
-import Projects from './Projects';
-import Skills from './Skills';
-import NewReading from './NewReading';
-import ContactMe from './ContactMe';
-
-import Footer from './Footer/';
-import Section from './Section';
+import {
+  ContactMe,
+  Header,
+  Footer,
+  NewReading,
+  Projects,
+  Skills,
+  Work,
+} from 'components';
 
 class Portfolio extends Component {
-  // componentDidMount() {
-  //   window.addEventListener('scroll', this._handleScroll);
-  // }
-
-  // componentWillUnmount() {
-  //   window.removeEventListener('scroll', this._handleScroll);
-  // }
-
-  // //PRIVATE
-
-  // _handleScroll = e => {
-  //   // console.log('scrolled height', e.srcElement.body.scrollHeight);
-  //   // console.log('scrolled top', e.srcElement.body.scrollTop);
-  //   // console.log('scrolled', e);
-  // };
-
   render() {
     return (
       <div className="Portfolio">
         <Header />
 
-        <Work />
+        <div className="mw9 mh3 mh5-l">
+          <Work />
 
-        <Projects />
+          <Projects />
 
-        <Skills />
+          <Skills />
 
-        <Section title="Recent Reads">
           <NewReading />
-        </Section>
 
-        <Section>
           <ContactMe />
-        </Section>
-
+        </div>
         <Footer />
       </div>
     );

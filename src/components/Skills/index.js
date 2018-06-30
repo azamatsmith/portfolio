@@ -19,7 +19,7 @@ class Skills extends Component {
     }
 
     const skillsList = Object.keys(skills).map((skill, i) => (
-      <li className="Skills-list-item" key={`${skill}-${i}`}>
+      <li className="Skills-list-item translate-y-2" key={`${skill}-${i}`}>
         {skills[skill]}
       </li>
     ));
