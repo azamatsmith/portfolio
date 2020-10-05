@@ -1,8 +1,9 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {updateCurrentScroll} from 'actions';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { updateCurrentScroll } from 'actions';
 
 import {
+  ComingSoon,
   ContactMe,
   Header,
   Footer,
@@ -15,27 +16,27 @@ import {
 class Portfolio extends Component {
   render() {
     return (
-      <div className="Portfolio">
-        <Header />
+      <>
+        <ComingSoon />
+        <div className="Portfolio relative">
+          <Header />
 
-        <div className="mw9 mh3 mh5-l">
-          <Work />
+          <div className="mw9 mh3 mh5-l">
+            <Work />
 
-          <Projects />
+            <Projects />
 
-          <Skills />
+            <Skills />
 
-          <NewReading />
+            <NewReading />
 
-          <ContactMe />
+            <ContactMe />
+          </div>
+          <Footer />
         </div>
-        <Footer />
-      </div>
+      </>
     );
   }
 }
 
-export default connect(
-  null,
-  {updateCurrentScroll}
-)(Portfolio);
+export default connect(null, { updateCurrentScroll })(Portfolio);
