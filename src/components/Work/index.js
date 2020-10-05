@@ -1,18 +1,19 @@
 // components/Work/index.js
 
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {firebase, helpers} from 'react-redux-firebase';
-const {isLoaded, isEmpty, dataToJS} = helpers;
-import {Section} from 'components';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { firebase, helpers } from 'react-redux-firebase';
+import { Section } from 'components';
 import WorkItem from './WorkItem';
 import WorkPlaceHolder from './WorkPlaceHolder';
 
 import './Work.css';
 
+const { isLoaded, isEmpty, dataToJS } = helpers;
+
 class WorkList extends Component {
   render() {
-    const {work} = this.props;
+    const { work } = this.props;
 
     if (!isLoaded(work)) {
       return (
@@ -56,6 +57,6 @@ class WorkList extends Component {
 
 const data = firebase(['work'])(WorkList);
 
-export default connect(({firebase}) => ({
+export default connect(({ firebase }) => ({
   work: dataToJS(firebase, 'work'),
 }))(data);

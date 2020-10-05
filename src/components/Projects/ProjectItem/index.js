@@ -1,8 +1,9 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {loadPhotos} from 'actions/index';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import './ProjectItem.css';
+
+function loadPhotos() {}
 
 class ProjectItem extends Component {
   // PRIVATE
@@ -12,11 +13,11 @@ class ProjectItem extends Component {
   };
 
   _renderPhotoLink = () => {
-    const {linkUrl, linkName} = this.props.data;
+    const { linkUrl, linkName } = this.props.data;
 
     return (
       <div className="ProjectItem-link-section">
-        <a href={linkUrl} target="_blank">
+        <a href={linkUrl} target="_blank" rel="noopener noreferrer">
           {linkName}
         </a>
       </div>
@@ -24,7 +25,7 @@ class ProjectItem extends Component {
   };
 
   render() {
-    const {org, summary, title} = this.props.data;
+    const { org, summary, title } = this.props.data;
     const link = this._renderPhotoLink();
 
     return (
@@ -41,7 +42,4 @@ class ProjectItem extends Component {
   }
 }
 
-export default connect(
-  null,
-  {loadPhotos}
-)(ProjectItem);
+export default connect(null, { loadPhotos })(ProjectItem);

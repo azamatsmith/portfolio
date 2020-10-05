@@ -1,35 +1,32 @@
 import React, { Component } from 'react';
 import DatePicker from 'react-datepicker';
+import moment from 'moment';
 import { connect } from 'react-redux';
 import { firebase, helpers } from 'react-redux-firebase';
-const { dataToJS } = helpers;
-import moment from 'moment';
-import 'react-datepicker/dist/react-datepicker.css';
 
 import Button from '../Shared/Button';
 import Input from '../Shared/Input';
 
-class AddBook extends Component {
+import 'react-datepicker/dist/react-datepicker.css';
 
+const { dataToJS } = helpers;
+
+class AddBook extends Component {
   state = {
     title: '',
     author: '',
     date: moment(),
-  }
+  };
 
   _handleAdd = () => {
     const book = this.state;
     book.date = book.date.format();
     this.props.firebase.push('/books', book);
-    this.setState({title: '', author: '', date: moment()});
-  }
+    this.setState({ title: '', author: '', date: moment() });
+  };
 
   render() {
-    const {
-      author,
-      date,
-      title
-    } = this.state;
+    const { author, date, title } = this.state;
 
     return (
       <div className="AddBook admin-section">
@@ -39,36 +36,29 @@ class AddBook extends Component {
           placeholder="Title"
           type="text"
           value={title}
-          onChange={(e) => this.setState({title: e.target.value})}
+          onChange={e => this.setState({ title: e.target.value })}
         />
 
         <Input
           placeholder="Author"
           type="text"
           value={author}
-          onChange={(e) => this.setState({author: e.target.value})}
+          onChange={e => this.setState({ author: e.target.value })}
         />
 
         <DatePicker
           selected={date}
-          onChange={ (date) => this.setState({date})}
+          onChange={date => this.setState({ date })}
         />
 
-        <Button
-          onClick={ this._handleAdd }
-          text="Add Book"
-        />
+        <Button onClick={this._handleAdd} text="Add Book" />
       </div>
     );
   }
 }
 
-const data = firebase([
-  'books'
-])(AddBook);
+const data = firebase(['books'])(AddBook);
 
-export default connect(
-  ({firebase}) => ({
-    books: dataToJS(firebase, 'books')
-  })
-)(data);
+export default connect(({ firebase }) => ({
+  books: dataToJS(firebase, 'books'),
+}))(data);
