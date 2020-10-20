@@ -26,6 +26,7 @@
     "extends": "react-app"
   },
   "devDependencies": {
+    "@testing-library/react": "^11.1.0",
     "prettier": "^2.1.2",
     "react-scripts": "^3.4.3",
     "tachyons": "^4.10.0"
