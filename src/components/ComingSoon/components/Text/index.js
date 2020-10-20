@@ -27,7 +27,7 @@ function Text({
     [font]
   );
   const mesh = useUpdate(
-    self => {
+    (self) => {
       const size = new THREE.Vector3();
       self.geometry.computeBoundingBox();
       self.geometry.boundingBox.getSize(size);
