@@ -2,9 +2,11 @@ import React, { Suspense } from 'react';
 // import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Canvas } from 'react-three-fiber';
+import { Html } from 'drei';
 
-import Jumbo from './components/Jumbo';
 import Asteroids from './components/Asteroids';
+import Jumbo from './components/Jumbo';
+import LoadingText, { gradientAnimation } from './components/LoadingText';
 
 const StyledCanvas = styled(Canvas)`
   background-color: black;
@@ -48,8 +50,14 @@ const Button = styled.button`
 `;
 
 const TextWrapper = styled.span`
-  border-bottom: 1px solid #fff;
-  padding-bottom: 2px;
+  font-weight: bold;
+
+  background: linear-gradient(243deg, #c945fb, #45fbe4);
+  background-size: 400% 400%;
+
+  animation: ${gradientAnimation} 4s ease infinite;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
 `;
 
 function ComingSoon() {
@@ -67,7 +75,13 @@ function ComingSoon() {
       >
         <ambientLight intensity={2} />
         <pointLight position={[40, 40, 40]} />
-        <Suspense fallback={null}>
+        <Suspense
+          fallback={
+            <Html>
+              <LoadingText />
+            </Html>
+          }
+        >
           <Jumbo />
           <Asteroids />
         </Suspense>
