@@ -1,3 +1,3 @@
 module.exports = {
-  plugins: ['gatsby-plugin-resolve-src'],
+  plugins: ['gatsby-plugin-react-helmet', 'gatsby-plugin-resolve-src'],
 };
