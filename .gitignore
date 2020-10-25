@@ -6,6 +6,8 @@
 # testing
 /coverage
 
+public
+
 .cache
 
 # production
