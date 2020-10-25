@@ -14,5 +14,12 @@ module.exports = {
         icon: `static/favicon.png`,
       },
     },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [`alegreya sans`],
+        display: 'swap',
+      },
+    },
   ],
 };
