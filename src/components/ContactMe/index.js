@@ -10,11 +10,6 @@ const ContactMe = () => (
     <div className="ContactMe-img-wrapper">
       <img alt="portrait" className="ContactMe-img" src={running} />
     </div>
-    <div className="ContactMe-right">
-      <p className="ContactMe-text">
-        I'm currently Freelancing and accepting React and React Native projects.
-      </p>
-    </div>
     <div className="ContactMe-social">
       <Social />
     </div>

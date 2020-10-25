@@ -16,8 +16,9 @@ const Footer = () => {
 
   return (
     <div className="Footer">
-      <p>Made with React, Redux, and Firebase. Check it out on {link}.</p>
-
+      <p style={{ marginBottom: 8 }}>
+        Made with Gatsby. Check it out on {link}.
+      </p>
       <p>{mailTo}</p>
     </div>
   );
