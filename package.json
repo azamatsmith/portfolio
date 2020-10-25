@@ -32,7 +32,8 @@
   "scripts": {
     "start": "gatsby develop",
     "dev": "gatsby develop",
-    "build": "gatsby build"
+    "build": "gatsby build",
+    "serve": "gatsby serve"
   },
   "browserslist": {
     "production": [">0.2%", "not dead", "not op_mini all"],

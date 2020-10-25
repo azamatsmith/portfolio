@@ -1,7 +1,7 @@
 // components/Project/index.js
 
 import React from 'react';
-import { Section } from 'components';
+import Section from '../Section';
 import ProjectItem from './ProjectItem';
 import projects from './data.js';
 import './Projects.css';

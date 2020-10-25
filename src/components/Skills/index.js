@@ -1,7 +1,7 @@
 // Skills/index.js
 
 import React from 'react';
-import { Section } from 'components';
+import Section from '../Section';
 import skills from './data.js';
 
 import './Skills.css';

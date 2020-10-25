@@ -1,15 +1,13 @@
 import React from 'react';
 
-import {
-  ComingSoon,
-  ContactMe,
-  Header,
-  Footer,
-  Layout,
-  Projects,
-  Skills,
-  Work,
-} from 'components';
+import ComingSoon from 'components/ComingSoon';
+import ContactMe from 'components/ContactMe';
+import Header from 'components/Header';
+import Footer from 'components/Footer';
+import Layout from 'components/Layout';
+import Projects from 'components/Projects';
+import Skills from 'components/Skills';
+import Work from 'components/Work';
 
 function Portfolio() {
   return (

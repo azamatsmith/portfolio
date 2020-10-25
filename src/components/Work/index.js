@@ -1,7 +1,8 @@
 // components/Work/index.js
 
 import React from 'react';
-import { Section } from 'components';
+
+import Section from '../Section';
 import WorkItem from './WorkItem';
 
 import work from './data.js';
@@ -21,9 +22,4 @@ function WorkList() {
   );
 }
 
-// const data = firebase(['work'])(WorkList);
-
 export default WorkList;
-// export default connect(({ firebase }) => ({
-//   work: dataToJS(firebase, 'work'),
-// }))(data);
