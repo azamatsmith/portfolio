@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet';
 const seo = {
   description:
     'Matt Smith | I am a freelance full stack engineer specializing in React and Gatsby located in Tucson, AZ.',
-  image: '',
+  image: 'https://bikeandcode.com/mattsmith.jpg',
   title: 'Matthew Smith | Full-Stack Engineer',
 };
 function SEO() {
