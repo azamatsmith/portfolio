@@ -5,7 +5,7 @@ import 'reset-css/reset.css';
 import 'animate.css';
 import './App.css';
 
-const App = ({children}) => {
+const App = ({ children }) => {
   return <div className="App">{children}</div>;
 };
 

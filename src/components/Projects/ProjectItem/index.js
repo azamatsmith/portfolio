@@ -1,45 +1,33 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
 
 import './ProjectItem.css';
 
-function loadPhotos() {}
-
-class ProjectItem extends Component {
-  // PRIVATE
-
-  _handleLinkClick = e => {
-    e.preventDefault();
-  };
-
-  _renderPhotoLink = () => {
-    const { linkUrl, linkName } = this.props.data;
-
+function ProjectItem({ data }) {
+  const _renderPhotoLink = () => {
+    const { linkUrl, linkText } = data;
     return (
       <div className="ProjectItem-link-section">
         <a href={linkUrl} target="_blank" rel="noopener noreferrer">
-          {linkName}
+          {linkText}
         </a>
       </div>
     );
   };
 
-  render() {
-    const { org, summary, title } = this.props.data;
-    const link = this._renderPhotoLink();
+  const { org, summary, title } = data;
+  const link = _renderPhotoLink();
 
-    return (
-      <li className="ProjectItem w-100 w-50-m w-third-l pa4">
-        <p className="ProjectItem-title">{title}</p>
+  return (
+    <li className="ProjectItem w-100 w-50-m w-third-l pa4">
+      <p className="ProjectItem-title">{title}</p>
 
-        <p className="ProjectItem-org">{org}</p>
+      <p className="ProjectItem-org">{org}</p>
 
-        <p className="ProjectItem-summary lh-copy">{summary}</p>
+      <p className="ProjectItem-summary lh-copy">{summary}</p>
 
-        {link}
-      </li>
-    );
-  }
+      {link}
+    </li>
+  );
 }
 
-export default connect(null, { loadPhotos })(ProjectItem);
+export default ProjectItem;

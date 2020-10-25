@@ -6,6 +6,12 @@
 # testing
 /coverage
 
+public
+
+build
+
+.cache
+
 # production
 # /build
 

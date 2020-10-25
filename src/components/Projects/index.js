@@ -1,41 +1,23 @@
 // components/Project/index.js
 
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {firebase, helpers} from 'react-redux-firebase';
-import {Section} from 'components';
+import React from 'react';
+import Section from '../Section';
 import ProjectItem from './ProjectItem';
+import projects from './data.js';
 import './Projects.css';
-const {isLoaded, isEmpty, dataToJS} = helpers;
 
-class Projects extends Component {
-  render() {
-    const {projects} = this.props;
+function Projects() {
+  const projectList = projects.map((project) => {
+    return <ProjectItem data={project} key={project.title} />;
+  });
 
-    if (!isLoaded(projects)) {
-      return <div />;
-    }
-
-    if (isEmpty(projects)) {
-      return <div />;
-    }
-
-    const projectList = Object.keys(projects).map(key => {
-      return <ProjectItem data={projects[key]} key={key} />;
-    });
-
-    return (
-      <Section title="Projects">
-        <div className="Projects">
-          <ul className="Projects-list">{projectList}</ul>
-        </div>
-      </Section>
-    );
-  }
+  return (
+    <Section title="Projects">
+      <div className="Projects">
+        <ul className="Projects-list">{projectList}</ul>
+      </div>
+    </Section>
+  );
 }
 
-const data = firebase(['projects'])(Projects);
-
-export default connect(({firebase}) => ({
-  projects: dataToJS(firebase, 'projects'),
-}))(data);
+export default Projects;
