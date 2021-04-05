@@ -10,16 +10,14 @@ const Footer = () => {
       GitHub
     </a>
   );
-  const mailTo = (
-    <span className="Footer-copy">&copy; {year} Matthew Smith</span>
-  );
+  const name = <span className="Footer-copy">&copy; {year} Matthew Smith</span>;
 
   return (
     <div className="Footer">
       <p style={{ marginBottom: 8 }}>
         Made with Gatsby. Check it out on {link}.
       </p>
-      <p>{mailTo}</p>
+      <p>{name}</p>
     </div>
   );
 };
