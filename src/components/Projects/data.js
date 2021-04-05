@@ -33,7 +33,7 @@ export default [
   },
   {
     linkText: 'Visit Website',
-    linkUrl: 'Visit Website',
+    linkUrl: 'https://namesquash.com',
     org: 'Creator/Owner',
     summary:
       'NameSquash is a real time domain and social media availablity search engine that helps you come up with a creative name for your business or app. It is built with React and Redux on the Front End and has a Node/Express backend written in TypeScript. ',
