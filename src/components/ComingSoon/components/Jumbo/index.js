@@ -3,7 +3,7 @@ import React, { useRef } from 'react';
 
 import Text from '../Text';
 
-import { useFrame } from 'react-three-fiber';
+import { useFrame } from '@react-three/fiber';
 
 function Jumbo() {
   const ref = useRef();
