@@ -6,9 +6,14 @@ import SEO from 'components/SEO';
 import { Button, Input, Spinner } from 'components/Shared';
 
 const SIMULATED_SUBMIT_MS = 2000;
+const DISALLOWED_PHONE_CHARACTERS = /[^\d\s().+-]/g;
+const PHONE_FORMAT_MESSAGE =
+  'Enter a 10-digit US phone number, like (520) 555-0123.';
+const US_PHONE_PATTERN = String.raw`\s*(\+?1[\s.\-]?)?(\(\d{3}\)|\d{3})[\s.\-]?\d{3}[\s.\-]?\d{4}\s*`;
 
 function Join() {
   const [status, setStatus] = useState('idle');
+  const [phone, setPhone] = useState('');
   const submitTimer = useRef();
 
   useEffect(() => () => clearTimeout(submitTimer.current), []);
@@ -40,6 +45,22 @@ function Join() {
               name="phone"
               type="tel"
               autoComplete="tel"
+              inputMode="tel"
+              maxLength={20}
+              pattern={US_PHONE_PATTERN}
+              title={PHONE_FORMAT_MESSAGE}
+              value={phone}
+              onChange={(event) => {
+                event.target.setCustomValidity('');
+                setPhone(
+                  event.target.value.replace(DISALLOWED_PHONE_CHARACTERS, '')
+                );
+              }}
+              onInvalid={(event) => {
+                if (event.target.validity.patternMismatch) {
+                  event.target.setCustomValidity(PHONE_FORMAT_MESSAGE);
+                }
+              }}
               required
             />
             <label className="flex items-start mv4" htmlFor="sms-consent">
