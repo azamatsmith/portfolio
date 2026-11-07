@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 
 import Layout from 'components/Layout';
+import SEO from 'components/SEO';
 
 const terms = [
   ['Program name', 'Soul Search game alerts'],
@@ -58,3 +59,5 @@ function Terms() {
 }
 
 export default Terms;
+
+export const Head = () => <SEO />;
