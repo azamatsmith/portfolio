@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'gatsby';
 
 import Layout from 'components/Layout';
+import SEO from 'components/SEO';
 import { Button, Input, Spinner } from 'components/Shared';
 
 const SIMULATED_SUBMIT_MS = 2000;
@@ -86,3 +87,5 @@ function Join() {
 }
 
 export default Join;
+
+export const Head = () => <SEO />;
