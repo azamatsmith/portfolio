@@ -1,6 +1,5 @@
 import React from 'react';
 
-import ComingSoon from 'components/ComingSoon';
 import ContactMe from 'components/ContactMe';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
@@ -12,7 +11,6 @@ import Work from 'components/Work';
 function Portfolio() {
   return (
     <Layout>
-      <ComingSoon />
       <div className="Portfolio relative">
         <Header />
         <div className="mw9 mh3 mh5-l">

@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { updateCurrentScroll } from 'actions';
 
 import {
-  ComingSoon,
   ContactMe,
   Header,
   Footer,
@@ -17,7 +16,6 @@ class Portfolio extends Component {
   render() {
     return (
       <>
-        <ComingSoon />
         <div className="Portfolio relative">
           <Header />
 
