@@ -16,3 +16,12 @@
   border: 2px solid #303030; 
   color: #303030;
 }
+
+.Button:disabled,
+.Button:disabled:hover {
+  background-color: #303030;
+  border: 2px solid transparent;
+  color: #fff;
+  cursor: wait;
+  opacity: 0.8;
+}
