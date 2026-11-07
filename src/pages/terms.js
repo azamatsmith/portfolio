@@ -49,7 +49,7 @@ function Terms() {
         <h1 className="f2 mb4">SMS Terms of Service</h1>
         {terms.map(([label, text]) => (
           <p className="mb3" key={label}>
-            <strong>{label}:</strong> {text}
+            <strong className="b">{label}:</strong> {text}
           </p>
         ))}
       </main>
