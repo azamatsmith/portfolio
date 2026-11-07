@@ -1,6 +1,4 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
-import { Helmet } from 'react-helmet';
 
 const seo = {
   description:
@@ -8,9 +6,11 @@ const seo = {
   image: 'https://bikeandcode.com/mattsmith.jpg',
   title: 'Matthew Smith | Full-Stack Engineer',
 };
+
 function SEO() {
   return (
-    <Helmet defer={false} title={seo.title}>
+    <>
+      <title>{seo.title}</title>
       <meta name="description" content={seo.description} />
 
       {/* Twitter */}
@@ -28,12 +28,8 @@ function SEO() {
       <meta property="og:image" content={seo.image} />
       <meta property="og:url" content={'https://bikeandcode.com'} />
       <meta property="og:title" content={seo.title} />
-    </Helmet>
+    </>
   );
 }
-
-SEO.propTypes = {};
-
-SEO.defaultProps = {};
 
 export default SEO;

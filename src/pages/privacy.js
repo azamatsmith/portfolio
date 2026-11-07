@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Layout from 'components/Layout';
+import SEO from 'components/SEO';
 
 const contactEmail = 'azamatsmith@gmail.com';
 const emailLink = (
@@ -50,3 +51,5 @@ function Privacy() {
 }
 
 export default Privacy;
+
+export const Head = () => <SEO />;
