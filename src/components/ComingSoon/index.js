@@ -1,8 +1,7 @@
 import React, { Suspense } from 'react';
 // import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Canvas } from 'react-three-fiber';
-import { Html } from 'drei';
+import { Canvas } from '@react-three/fiber';
 
 import Asteroids from './components/Asteroids';
 import Jumbo from './components/Jumbo';
@@ -44,7 +43,7 @@ const Button = styled.button`
   transform: translateX(-50%);
   z-index: 2;
 
-  :hover {
+  &:hover {
     opacity: 0.4;
   }
 `;
@@ -60,8 +59,18 @@ const TextWrapper = styled.span`
   -webkit-background-clip: text;
 `;
 
+// Rendered inside <Suspense>; signals that all suspended assets have loaded.
+function OnLoaded({ onLoaded }) {
+  React.useEffect(() => {
+    onLoaded();
+  }, [onLoaded]);
+  return null;
+}
+
 function ComingSoon() {
   const [open, setOpen] = React.useState(true);
+  const [loaded, setLoaded] = React.useState(false);
+  const handleLoaded = React.useCallback(() => setLoaded(true), []);
 
   if (!open) {
     return null;
@@ -75,17 +84,13 @@ function ComingSoon() {
       >
         <ambientLight intensity={2} />
         <pointLight position={[40, 40, 40]} />
-        <Suspense
-          fallback={
-            <Html>
-              <LoadingText />
-            </Html>
-          }
-        >
+        <Suspense fallback={null}>
           <Jumbo />
           <Asteroids />
+          <OnLoaded onLoaded={handleLoaded} />
         </Suspense>
       </StyledCanvas>
+      {!loaded && <LoadingText />}
       <Button onClick={() => setOpen(false)}>
         <TextWrapper>CLOSE</TextWrapper>
       </Button>

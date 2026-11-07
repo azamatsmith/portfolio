@@ -1,7 +1,11 @@
-import React, { useMemo } from 'react';
+import React, { useLayoutEffect, useMemo, useRef } from 'react';
 import PropTypes from 'prop-types';
 import * as THREE from 'three';
-import { useLoader, useUpdate } from 'react-three-fiber';
+import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js';
+import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry.js';
+import { extend, useLoader } from '@react-three/fiber';
+
+extend({ TextGeometry });
 
 function Text({
   children,
@@ -11,12 +15,12 @@ function Text({
   color = '#000000',
   ...props
 }) {
-  const font = useLoader(THREE.FontLoader, '/bold.blob');
+  const font = useLoader(FontLoader, '/bold.blob');
   const config = useMemo(
     () => ({
       font,
       size: 40,
-      height: 30,
+      depth: 30,
       curveSegments: 32,
       bevelEnabled: true,
       bevelThickness: 6,
@@ -26,18 +30,17 @@ function Text({
     }),
     [font]
   );
-  const mesh = useUpdate(
-    (self) => {
-      const size = new THREE.Vector3();
-      self.geometry.computeBoundingBox();
-      self.geometry.boundingBox.getSize(size);
-      self.position.x =
-        hAlign === 'center' ? -size.x / 2 : hAlign === 'right' ? 0 : -size.x;
-      self.position.y =
-        vAlign === 'center' ? -size.y / 2 : vAlign === 'top' ? 0 : -size.y;
-    },
-    [children]
-  );
+  const mesh = useRef();
+  useLayoutEffect(() => {
+    const self = mesh.current;
+    const bounds = new THREE.Vector3();
+    self.geometry.computeBoundingBox();
+    self.geometry.boundingBox.getSize(bounds);
+    self.position.x =
+      hAlign === 'center' ? -bounds.x / 2 : hAlign === 'right' ? 0 : -bounds.x;
+    self.position.y =
+      vAlign === 'center' ? -bounds.y / 2 : vAlign === 'top' ? 0 : -bounds.y;
+  }, [children, hAlign, vAlign]);
   return (
     <group {...props} scale={[0.1 * size, 0.1 * size, 0.1]}>
       <mesh ref={mesh}>
@@ -54,14 +57,6 @@ Text.propTypes = {
   hAlign: PropTypes.string,
   size: PropTypes.number,
   color: PropTypes.string,
-};
-
-Text.defaultProps = {
-  children: null,
-  color: '#000000',
-  hAlign: 'center',
-  size: 1,
-  vAlign: 'center',
 };
 
 export default Text;
