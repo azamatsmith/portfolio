@@ -18,6 +18,17 @@ function Join() {
 
   useEffect(() => () => clearTimeout(submitTimer.current), []);
 
+  function handlePhoneChange(event) {
+    event.target.setCustomValidity('');
+    setPhone(event.target.value.replace(DISALLOWED_PHONE_CHARACTERS, ''));
+  }
+
+  function handlePhoneInvalid(event) {
+    if (event.target.validity.patternMismatch) {
+      event.target.setCustomValidity(PHONE_FORMAT_MESSAGE);
+    }
+  }
+
   function handleSubmit(event) {
     event.preventDefault();
     setStatus('submitting');
@@ -50,17 +61,8 @@ function Join() {
               pattern={US_PHONE_PATTERN}
               title={PHONE_FORMAT_MESSAGE}
               value={phone}
-              onChange={(event) => {
-                event.target.setCustomValidity('');
-                setPhone(
-                  event.target.value.replace(DISALLOWED_PHONE_CHARACTERS, '')
-                );
-              }}
-              onInvalid={(event) => {
-                if (event.target.validity.patternMismatch) {
-                  event.target.setCustomValidity(PHONE_FORMAT_MESSAGE);
-                }
-              }}
+              onChange={handlePhoneChange}
+              onInvalid={handlePhoneInvalid}
               required
             />
             <label className="flex items-start mv4" htmlFor="sms-consent">
