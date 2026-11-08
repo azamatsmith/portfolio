@@ -1,0 +1,114 @@
+import React, { useEffect, useRef, useState } from 'react';
+import { Link } from 'gatsby';
+
+import Layout from 'components/Layout';
+import SEO from 'components/SEO';
+import { Button, Input, Spinner } from 'components/Shared';
+
+const SIMULATED_SUBMIT_MS = 2000;
+const DISALLOWED_PHONE_CHARACTERS = /[^\d\s().+-]/g;
+const PHONE_FORMAT_MESSAGE =
+  'Enter a 10-digit US phone number, like (520) 555-0123.';
+const US_PHONE_PATTERN = String.raw`\s*(\+?1[\s.\-]?)?(\(\d{3}\)|\d{3})[\s.\-]?\d{3}[\s.\-]?\d{4}\s*`;
+
+function Join() {
+  const [status, setStatus] = useState('idle');
+  const [phone, setPhone] = useState('');
+  const submitTimer = useRef();
+
+  useEffect(() => () => clearTimeout(submitTimer.current), []);
+
+  function handlePhoneChange(event) {
+    event.target.setCustomValidity('');
+    setPhone(event.target.value.replace(DISALLOWED_PHONE_CHARACTERS, ''));
+  }
+
+  function handlePhoneInvalid(event) {
+    if (event.target.validity.patternMismatch) {
+      event.target.setCustomValidity(PHONE_FORMAT_MESSAGE);
+    }
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    setStatus('submitting');
+    submitTimer.current = setTimeout(
+      () => setStatus('submitted'),
+      SIMULATED_SUBMIT_MS
+    );
+  }
+
+  const isSubmitting = status === 'submitting';
+
+  return (
+    <Layout>
+      <main className="mw6 center ph3 pv5 lh-copy">
+        <h1 className="f2 mb4">Join Soul Search</h1>
+        {status === 'submitted' ? (
+          <p role="status">
+            Thanks for signing up! You'll get a text confirming your number.
+          </p>
+        ) : (
+          <form onSubmit={handleSubmit} aria-busy={isSubmitting}>
+            <Input
+              label="Phone number"
+              aria-label="Phone number"
+              name="phone"
+              type="tel"
+              autoComplete="tel"
+              inputMode="tel"
+              maxLength={20}
+              pattern={US_PHONE_PATTERN}
+              title={PHONE_FORMAT_MESSAGE}
+              value={phone}
+              onChange={handlePhoneChange}
+              onInvalid={handlePhoneInvalid}
+              required
+            />
+            <label className="flex items-start mv4" htmlFor="sms-consent">
+              <input
+                className="mt1 mr2"
+                id="sms-consent"
+                name="smsConsent"
+                type="checkbox"
+                required
+              />
+              <span>
+                I agree to receive text messages from Soul Search (Bike and Code
+                LLC) about the family game, including score updates, weekly
+                results, and photo confirmations. Message frequency varies.
+                Message and data rates may apply. Reply STOP to opt out, HELP
+                for help. Consent is not a condition of purchase. See our{' '}
+                <Link className="link underline" to="/privacy">
+                  Privacy Policy
+                </Link>{' '}
+                and{' '}
+                <Link className="link underline" to="/terms">
+                  Terms
+                </Link>
+                .
+              </span>
+            </label>
+            <Button
+              type="submit"
+              disabled={isSubmitting}
+              text={
+                isSubmitting ? (
+                  <>
+                    <Spinner /> Signing up…
+                  </>
+                ) : (
+                  'Sign up'
+                )
+              }
+            />
+          </form>
+        )}
+      </main>
+    </Layout>
+  );
+}
+
+export default Join;
+
+export const Head = () => <SEO />;
